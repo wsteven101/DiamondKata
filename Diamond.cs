@@ -38,7 +38,8 @@ namespace DiamondKata
                 throw new ArgumentOutOfRangeException("Argument is not a valid ASCII letter"); ;
             }
 
-            var outputChars = new StringBuilder();
+             // we allocate more space than is needed in advance but reduces the no of heap allocations
+            var outputChars = new StringBuilder((offsetCharValue+1) * (offsetCharValue+1));
 
              // output the upper side of the diamond
             for (var charCount = 0; charCount <= offsetCharValue - 1; charCount++)
